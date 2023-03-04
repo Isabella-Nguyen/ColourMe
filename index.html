@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="camera_api_test.js" defer></script>
   <title>ColorMe</title>
 </head>
 <body>
@@ -18,8 +19,13 @@
   </div>
   
   <div id="camera-application">
-    <h2>camera goes here</h2>
-    <button class="gradient-btn"></button>
+    
+    <div>
+      <video id="image">Video stream not available.</video>
+    </div>
+    <button class="gradient-btn" id="clickButton">Color Me</button>
+    
+    <canvas id="canvas"> </canvas>
   </div>
   
 </body>

@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@google-cloud/vision": "^3.1.2"
-  }
-}

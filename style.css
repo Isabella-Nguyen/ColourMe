@@ -5,14 +5,54 @@
 }
 
 body{
-  margin: auto;
   background-color: #C0B1E0;
   max-width: 800px;
 }
 
 h1{
   padding: 30px;
-  text-align: center;
+  font-size: 4em;
+  font-weight: 500;
   letter-spacing: 0.165em;
+  color: #06430F;
 }
 
+p{
+  text-align: left;
+  font-size: 1.25em;
+  line-height: 1.7em;
+  font-weight: 400;
+  color: #06430F;
+}
+
+#information-page {
+  text-align: center;
+}
+
+button{
+  all: unset;
+  text-align: center;
+}
+
+a {
+  all: unset;
+  color: #06430F;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+}
+
+.gradient-btn {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(250.34deg, rgba(227, 166, 229, 0.584) -50.55%, rgba(166, 229, 183, 0.8) 106.82%);
+  box-shadow: 0px 4px 15px rgba(6, 67, 15, 0.28);
+  border-radius: 69px;
+}
+
+video {
+  border: solid 2px ;
+}
+
+canvas {
+  visibility: hidden;
+}
