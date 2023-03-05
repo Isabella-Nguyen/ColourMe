@@ -22,11 +22,13 @@ const CONFIG = {
 
 const client = new vision.ImageAnnotatorClient(CONFIG);
 
-export const colors = async(data) => {
-  let[result] = await client.imageProperties(data);
+export const colors = async(req, res) => {
+  console.log(req.body.data)
+  let[result] = await client.imageProperties(req.body.data);
   let dom_colors = result.imagePropertiesAnnotation.dominantColors.colors
   console.log(dom_colors);
-  return dom_colors;
+  //return dom_colors;
+  res.status(200).json({ result:dom_colors});
 }
 
 

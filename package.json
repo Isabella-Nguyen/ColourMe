@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "@google-cloud/vision": "^3.1.2"
+    "@google-cloud/vision": "^3.1.2",
+    "openai": "^3.2.1"
   },
   "type": "module"
 }
