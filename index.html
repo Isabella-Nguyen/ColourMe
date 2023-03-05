@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +9,37 @@
   <script type="text/javascript" src="camera_api_test.js" defer></script>
   <title>ColorMe</title>
 </head>
-<body>
-  <div id="information-page">
-    <h1>ColorMe</h1>
-    <p>Color Me is is an application designed to identify and describe specific colours in the images you take! All you have to do is snap a pic, and the app will read out the colors in your image. If you wish to change the voice speaking at you, allow the app to identify the objects in the photo, and more, you can click on the settings button. Click the "Try Me" button located at the bottom of the screen to get started!<p>
 
-    </p><div class="gradient-blob pink"></div>
+<body>
+
+  <div id="information-page">
+    <div class="gradient-blob pink"></div>
     <div class="gradient-blob green"></div>
-    <button class="gradient-btn try-me"><a href="#camera-application">TRY ME</a></button>
+    <div class="gradient-blob pink"></div>
+
+    <div class="box">
+      <div class="container">
+        <h1>ColorMe</h1>
+        <p>Color Me is is an application designed to identify and describe specific colours in the images you take! All
+          you have to do is snap a pic, and the app will read out the colors in your image. If you wish to change the
+          voice speaking at you, allow the app to identify the objects in the photo, and more, you can click on the
+          settings button. Click the "Try Me" button located at the bottom of the screen to get started!
+        </p>
+        <button class="gradient-btn try-me"><a href="#camera-application">TRY ME</a></button>
+
+      </div>
+    </div>
   </div>
   
   <div id="camera-application">
-    
     <div>
       <video id="image">Video stream not available.</video>
+      <button class="gradient-btn" id="clickButton">Color Me</button>
     </div>
-    <button class="gradient-btn" id="clickButton">Color Me</button>
     
     <canvas id="canvas"> </canvas>
   </div>
-  
+
 </body>
+
 </html>
