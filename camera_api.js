@@ -22,7 +22,6 @@ let constraints = {
 function startup() {
   input = document.getElementById('image');
   canvas = document.getElementById('canvas');
-  //photo = document.getElementById('photo');
   clickButton = document.getElementById('clickButton');
 
   navigator.permissions.query({ name: 'camera' })
@@ -46,8 +45,6 @@ function startup() {
     "canplay",
     (ev) => {
       if (!videoOn) {
-        //height = (image.videoHeight / image.videoWidth) * width;
-
         input.setAttribute("width", width);
         input.setAttribute("height", height);
         canvas.setAttribute("width", width);
@@ -77,7 +74,6 @@ function clearphoto() {
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   const data = canvas.toDataURL("image/png");
-  //photo.setAttribute("src", data);
 }
 
 function componentToHex(c) {
@@ -132,7 +128,7 @@ async function takepicture() {
 
     let rgb = rgbToHex(red, green, blue);
 
-    let apiKey = "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";
+    let apiKey = config.OPEN_API_KEY;
 
     const description = await fetch("https://api.openai.com/v1/completions", {
       method: "POST",
@@ -159,7 +155,6 @@ async function takepicture() {
 }
 
 window.addEventListener("load", startup, false);
-
 
 
 
