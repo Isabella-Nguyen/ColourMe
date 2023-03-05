@@ -126,7 +126,7 @@ canvas {
   text-align: center;
 }
 
-#camera-application button{
+#camera-application big{
   position: relative;
   color: #06430F;
   width: 300px;

@@ -4,6 +4,7 @@ let image = null;
 let canvas = null;
 let photo = null;
 let clickButton = null;
+let flipButton = null;
 
 let width = 600;
 let height = 600;
@@ -15,7 +16,8 @@ let constraints = {
     },
     height: {
       ideal: 720
-    }
+    },
+    facingMode: "user"
   }
 };
 
@@ -23,6 +25,7 @@ function startup() {
   input = document.getElementById('image');
   canvas = document.getElementById('canvas');
   clickButton = document.getElementById('clickButton');
+  flipButton = document.getElementById("flipButton");
 
   navigator.permissions.query({ name: 'camera' })
     .then((permissionObj) => {
@@ -32,7 +35,37 @@ function startup() {
       console.log('Got error :', error);
     });
 
-  navigator.mediaDevices.getUserMedia(constraints)
+  cameraSetup();
+
+  clickButton.addEventListener(
+    "click",
+    (ev) => {
+      takepicture();
+      ev.preventDefault();
+    },
+    false
+  );
+
+  flipButton.addEventListener(
+    "click",
+    (ev) => {
+        let curMode = constraints.video.facingMode;
+        if(curMode == "user"){
+            constraints.video.facingMode = "environment";
+        }else{
+            constraints.video.facingMode = "user";
+        }
+        cameraSetup();
+        ev.preventDefault();
+    },
+    false
+  );
+
+  clearphoto();
+}
+
+function cameraSetup(){
+    navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
       input.srcObject = stream;
       input.play();
@@ -55,17 +88,6 @@ function startup() {
     },
     false
   );
-
-  clickButton.addEventListener(
-    "click",
-    (ev) => {
-      takepicture();
-      ev.preventDefault();
-    },
-    false
-  );
-
-  clearphoto();
 }
 
 function clearphoto() {
