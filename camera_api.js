@@ -27,7 +27,7 @@ function startup() {
   clickButton = document.getElementById('clickButton');
   flipButton = document.getElementById("flipButton");
   description = document.getElementById("description");
-  
+
   navigator.permissions.query({ name: 'camera' })
     .then((permissionObj) => {
       console.log(permissionObj.state);
@@ -50,14 +50,15 @@ function startup() {
   flipButton.addEventListener(
     "click",
     (ev) => {
-        let curMode = constraints.video.facingMode;
-        if(curMode == "user"){
-            constraints.video.facingMode = "environment";
-        }else{
-            constraints.video.facingMode = "user";
-        }
-        cameraSetup();
-        ev.preventDefault();
+      let curMode = constraints.video.facingMode;
+      if (curMode == "user") {
+        constraints.video.facingMode = "environment";
+        
+      } else {
+        constraints.video.facingMode = "user";
+      }
+      cameraSetup();
+      ev.preventDefault();
     },
     false
   );
@@ -66,16 +67,17 @@ function startup() {
     "click",
     (ev) => {
       var msg = new SpeechSynthesisUtterance();
-    msg.text = description.innerHTML;
-    window.speechSynthesis.speak(msg);
+      msg.text = description.innerHTML;
+      window.speechSynthesis.speak(msg);
+      ev.preventDefault();
     }
-  )
+  );
 
   clearphoto();
 }
 
-function cameraSetup(){
-    navigator.mediaDevices.getUserMedia(constraints)
+function cameraSetup() {
+  navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
       input.srcObject = stream;
       input.play();
