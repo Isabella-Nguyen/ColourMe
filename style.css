@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
-html{
-  overflow-x: hidden;
+
+html {
+  overflow-x: hidden !important;
   scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
-  width: 10px; 
+  width: 10px;
 }
 
 /* Track */
@@ -16,19 +17,19 @@ html{
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #126722;
+  background: #501267;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #2e833b;
+  background: #7b2e83;
 }
 
-*{
+* {
   font-family: 'Roboto Mono', monospace;
 }
 
-body{
+body {
   margin: auto;
   overflow: overlay;
   background-color: #C0B1E0;
@@ -42,7 +43,7 @@ body{
   text-align: center;
 }
 
-h1{
+h1 {
 
   padding: 30px;
   font-size: 4em;
@@ -51,7 +52,7 @@ h1{
   color: #06430F;
 }
 
-p{
+p {
 
   text-align: left;
   font-size: 1.25em;
@@ -60,7 +61,7 @@ p{
   color: #06430F;
 }
 
-button{
+button {
   all: unset;
   margin: 30px;
   text-align: center;
@@ -78,7 +79,7 @@ a {
   height: 50px;
   background: linear-gradient(250.34deg, rgba(227, 166, 229, 0.584) -50.55%, rgba(166, 229, 183, 0.8) 106.82%);
   box-shadow: 0px 4px 15px rgba(6, 67, 15, 0.28);
-  border-radius: 69px;
+  border-radius: 30px;
 }
 
 canvas {
@@ -93,7 +94,7 @@ canvas {
   height: 60%;
   border-radius: 50%;
   border: solid 2px;
-  }
+}
 
 .pink {
   background: #FDB0FF;
@@ -126,20 +127,41 @@ canvas {
   text-align: center;
 }
 
-#camera-application big{
+#camera-application .big {
+  margin: 0px;
+  margin-bottom: 20px;
   position: relative;
   color: #06430F;
-  width: 300px;
+  width: 95%;
   height: 100px;
   font-weight: 500;
-  font-size: 2em;
-  bottom: 30px;
-
+  font-size: 2.5em;
 }
 
+
 video {
-  margin-top: 100px;
-  width: 100%;
+  margin: 100px auto 10px;
+  width: 95%;
   height: 100%;
   border-radius: 20px;
+}
+
+.flip {
+  position: absolute;
+  right: 10px;
+  top: 90px;
+  width: 50px;
+  font-size: 2em;
+  background-color: rgb(207, 135, 217);
+}
+
+div {
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 13px;
+  }
+
 }

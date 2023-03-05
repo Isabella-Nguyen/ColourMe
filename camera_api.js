@@ -26,7 +26,8 @@ function startup() {
   canvas = document.getElementById('canvas');
   clickButton = document.getElementById('clickButton');
   flipButton = document.getElementById("flipButton");
-
+  description = document.getElementById("description");
+  
   navigator.permissions.query({ name: 'camera' })
     .then((permissionObj) => {
       console.log(permissionObj.state);
@@ -60,6 +61,15 @@ function startup() {
     },
     false
   );
+
+  description.addEventListener(
+    "click",
+    (ev) => {
+      var msg = new SpeechSynthesisUtterance();
+    msg.text = description.innerHTML;
+    window.speechSynthesis.speak(msg);
+    }
+  )
 
   clearphoto();
 }

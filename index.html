@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,10 @@
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="config.js" defer></script>
   <script type="text/javascript" src="camera_api.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>ColorMe</title>
 </head>
+
 <body>
 
   <div id="information-page">
@@ -19,24 +22,25 @@
     <div class="box">
       <div class="container">
         <h1>ColorMe</h1>
-        <p>Color Me is is an application designed to identify and describe specific colours in the images you take! All
-          you have to do is snap a pic, and the app will read out the colors in your image. If you wish to change the
-          voice speaking at you, allow the app to identify the objects in the photo, and more, you can click on the
-          settings button. Click the "Try Me" button located at the bottom of the screen to get started!
-        </p>
+        <p id="description">
+          Colour Me is an application designed to identify and describe the most dominant colour in the image you
+          capture! All you have to do is click the "Try Me" button or scroll to the bottom of the screen to get started. After
+          this, you can click the "Colour Me" button at the bottom of the screen to capture your image and the colour
+          detected will be read aloud to you. If you are using an android cellular device, you can click the button in
+          the top righthand corner of the screen to flip your camera view.</p>
         <button class="gradient-btn try-me"><a href="#camera-application">TRY ME</a></button>
 
       </div>
     </div>
   </div>
-  
+
   <div id="camera-application">
     <div>
-      <button class="gradient-btn" id="flipButton">Flip Camera</button>
+      <button class="gradient-btn flip" id="flipButton"> ⟳</button>
       <video id="image">Video stream not available.</video>
       <button class="gradient-btn big" id="clickButton">Color Me</button>
     </div>
-    
+
     <canvas id="canvas"> </canvas>
   </div>
 
