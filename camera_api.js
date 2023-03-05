@@ -115,8 +115,8 @@ async function takepicture() {
       }),
     });
 
-    const doo = await response.json();
-    colors = doo.responses[0].imagePropertiesAnnotation.dominantColors.colors[0].color;
+    const res = await response.json();
+    colors = res.responses[0].imagePropertiesAnnotation.dominantColors.colors[0].color;
 
     let red = colors.red;
     let green = colors.green;
@@ -126,7 +126,7 @@ async function takepicture() {
     console.log(green);
     console.log(blue);
 
-    let rgb = rgbToHex(red, green, blue);
+    let hex = rgbToHex(red, green, blue);
 
     let apiKey = config.OPEN_API_KEY;
 
@@ -138,7 +138,7 @@ async function takepicture() {
       },
       body: JSON.stringify({
         model: "text-davinci-003",
-        prompt: `can you describe this hexcode to a blind person ${rgb} in 3 to 10 words, be as descriptive as possible. please dont mention the hex code. please include the name of the hue.`,
+        prompt: `can you describe this hexcode to a blind person ${hex} in 3 to 10 words, be as descriptive as possible. please dont mention the hex code. please include the name of the hue.`,
         temperature: 0,
         max_tokens: 7,
       }),
