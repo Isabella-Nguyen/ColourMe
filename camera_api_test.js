@@ -132,7 +132,7 @@ async function takepicture() {
 
     let rgb = rgbToHex(red, green, blue);
 
-    let apiKey = "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";
+    let apiKey = "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";
 
     const description = await fetch("https://api.openai.com/v1/completions", {
       method: "POST",
