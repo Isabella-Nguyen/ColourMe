@@ -19,28 +19,13 @@ let constraints = {
     }
 };
 
-/*
-async function onSubmit(event) {
-    event.preventDefault();
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ promptInput: promptInput }),
-    });
-    const data = await response.json();
-    setResult(prev => [[promptInput, data.result], ...prev]);
-    setPromptInput("");
-  }
-*/
-
+// Initalize screen with dimensions of video display
 function startup() {
     input = document.getElementById('image');
     canvas = document.getElementById('canvas');
-    //photo = document.getElementById('photo');
     clickButton = document.getElementById('clickButton');
 
+    // request access to user's camera
     navigator.permissions.query({ name: 'camera' })
         .then((permissionObj) => {
             console.log(permissionObj.state);
@@ -62,7 +47,6 @@ function startup() {
         "canplay",
         (ev) => {
             if (!videoOn) {
-                //height = (image.videoHeight / image.videoWidth) * width;
 
                 input.setAttribute("width", width);
                 input.setAttribute("height", height);
@@ -87,13 +71,11 @@ function startup() {
     clearphoto();
 }
 
+//captures png image
 function clearphoto() {
     const context = canvas.getContext("2d");
     context.fillStyle = "#AAA";
     context.fillRect(0, 0, canvas.width, canvas.height);
-
-    const data = canvas.toDataURL("image/png");
-    //photo.setAttribute("src", data);
 }
 
 async function takepicture() {
@@ -125,29 +107,17 @@ async function takepicture() {
                 ]
               }),
           });
-          
-         /*
-         
-          .then(resp => {return resp})
-          .then (respp =>{console.log(respp)})
-          .catch(error=>console.log(error))
 
-          var b=JSON.stringify({"requests":[{  "image":{"content": data.substring(22)}  ,  "features": [{"type":"LABEL_DETECTION","maxResults":5}]    } ]});
-          var e=new XMLHttpRequest;
-          
-          e.onload=function(){console.log(e.responseText)};
-          e.open("POST","https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBgIWhU22594CAQG1GCLzIJ0ePG7Uml-zk",!0);
-          e.send(b)\
-          */
           const doo = await response.json();
           console.log(doo.responses[0].imagePropertiesAnnotation.dominantColors.colors[0].color);
 
-          let apiKey = "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"
+          let apiKey = config.OPEN_API_KEY;
+          //let apiKey = "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";
           
           const description = await fetch("https://api.openai.com/v1/completions", {
             method: "POST",
             headers: {
-                'Authorization': `Bearer ${apiKey}`,
+              'Authorization': "Bearer ${apiKey}",
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
@@ -158,6 +128,8 @@ async function takepicture() {
               }),
           });
           const color_description = await description.json();
+          console.log(color_description);
+
           let words = color_description.choices[0].text;
           
           var msg = new SpeechSynthesisUtterance();
@@ -169,9 +141,6 @@ async function takepicture() {
             msg.text = words;
             msg.lang = 'en';
             speechSynthesis.speak(msg);
-
-          //return color_description.choices[0].text;
-        
 
     } else {
         clearphoto();
